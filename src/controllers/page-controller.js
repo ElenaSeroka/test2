@@ -24,7 +24,7 @@ export default class PageController {
   /**
    * Atgywwhujik 23.
    */
-  async renderMain () {
+  async renderMain() {
     console.log('renderMain func')
 
     const client = await new Client({
@@ -45,15 +45,48 @@ export default class PageController {
     // })
 
 
-    let keyword = 'sonic'
+
+    // const keyword = 'sonic'
+    // const size = 20
+    const defaultSize = 4000
+    const year = '2004-07'
+    const decade = 20
+
     //   Let's search!
     // detta ska in i express appen. conmect. ny connect varje gång
     const searchResults = await client.search({
+      // size: `${size}` || defaultSize,
+      size: defaultSize,
       index: 'games',
+
+      // query: {
+      //   match: {
+      //     Firstreleased: '2002-12-12'
+      //   }
+      //   // match: { Firstreleased: '2004-07' }
+      // }
+
       query: {
-        match: { Title: `${keyword}` }
+        bool: {
+          must: [
+            // {
+            //   term: {
+            //     JP: 'Released'
+            //   }
+            // },
+            {
+              range: {
+                Firstreleased: {
+                  gte: '2002-06-25',
+                  lte: '2002-06-29'
+                }
+              }
+            }
+          ]
+        }
       }
     })
+
     console.log(searchResults.hits.hits)
 
     console.log(searchResults.hits.hits.length)
