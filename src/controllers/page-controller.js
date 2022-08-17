@@ -69,11 +69,11 @@ export default class PageController {
       query: {
         bool: {
           must: [
-            // {
-            //   term: {
-            //     JP: 'Released'
-            //   }
-            // },
+            {
+              match: {
+                JP: 'Unreleased'
+              }
+            },
             {
               range: {
                 Firstreleased: {
