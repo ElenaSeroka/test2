@@ -31,20 +31,21 @@ export class PageController {
         console.log('rendermain')
     }
 
-    // getChartShit(req, res) {
-    //     const data = [
-    //         {
-    //             labels: ['Boo', 'February', 'March', 'April', 'May', 'June', 'July'],
-    //             data: [{
-    //                 values: [2, 5, 10, 25, 75, 43, 23],
-    //             },
-    //             {
-    //                 values: [21, 45, 28, 80, 99, 43, 23]
-    //             }]
-    //         }
-    //     ]
-    //     console.log(data)
-    // }
+    async getChartShit(req, res) {
+        const data = [
+            {
+                labels: ['Boo', 'February', 'March', 'April', 'May', 'June', 'Spooktober'],
+                data: [{
+                    values: [2, 5, 10, 25, 75, 43, 23],
+                },
+                {
+                    values: [21, 45, 28, 80, 150, 43, 23]
+                }]
+            }
+        ]
+        console.log(data)
+        res.json(data)
+    }
 
 
     async getAllGames(req, res) {
@@ -114,7 +115,7 @@ export class PageController {
         console.log(searchResults.hits.hits.length)
 
         res.json(searchResults.hits.hits)
-        
+
         // const data = [
         //     {
         //         labels: ['Boo', 'February', 'March', 'April', 'May', 'June', 'July'],
