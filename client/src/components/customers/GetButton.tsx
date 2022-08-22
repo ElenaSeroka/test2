@@ -10,7 +10,7 @@ const App = () => {
         setIsLoading(true);
 
         try {
-            const response = await fetch('http://localhost:5000/api', {
+            const response = await fetch('http://localhost:5000/api/games-per-year', {
                 method: 'GET',
                 headers: {
                     Accept: 'application/json',
