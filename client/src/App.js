@@ -15,7 +15,9 @@ function App() {
     /* // declare the async data fetching function */
     const fetchData = async () => {
       /* // get the data from the api */
-      const data = await fetch('http://localhost:5000/api');
+      const data = await fetch('http://localhost:5000/api/games-per-year');
+      // const data = await fetch('http://localhost:5000/api/games-all-years-JP-EU');
+      // const data = await fetch('http://localhost:5000/api/games-per-publisher');
       /* // convert the data to json */
       const dataArrayJSON = await data.json();
       console.log('This is new ')
@@ -34,8 +36,12 @@ function App() {
     <div className="App">
       <MyChart
         labels={data.length === 0 ? ["pink"] : data[0].labels}
-        data1={data.length === 0 ? [0, 0, 0, 0, 0, 0] : data[0].data[0].values}
-        data2={data.length === 0 ? [0, 0, 0, 0, 0, 0] : data[0].data[1].values} />
+        data1={data.length === 0 ? [0, 0, 0, 0, 0, 0] : data[0].data.values}
+        // data1={data.length === 0 ? [0, 0, 0, 0, 0, 0] : data[0].data[0].values}
+        />
+        {/* data2={data.length === 0 ? [0, 0, 0, 0, 0, 0] : data[0].data[1].values} */}
+
+        
       <button onClick={() => window.location.reload()}>Refresh chart</button>
     </div>
   );
