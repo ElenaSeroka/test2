@@ -1,7 +1,7 @@
 import express from 'express'
-import PageController from '../controllers/page-controller.js'
+import ElasticSearchControllerController from '../controllers/elastic-search-controller.js'
 
 export const pageRouter = express.Router()
-export const controller = new PageController()
+export const controller = new ElasticSearchControllerController()
 
 pageRouter.get('/', controller.renderMain)
